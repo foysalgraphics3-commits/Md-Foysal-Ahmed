@@ -1,123 +1,91 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#254d32">
-<meta name="description" content="ফয়সাল অর্গানিক ফুড — মধু, বাদাম, বীজ ও খাঁটি সরিষার তেল।">
-<title>ফয়সাল অর্গানিক ফুড | অনলাইন শপ</title>
-<style>
-:root{--green:#254d32;--leaf:#6b9b45;--cream:#fffaf0;--gold:#e8b64d;--ink:#243126;--muted:#667366;--line:#e4e9df}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
-a{color:inherit}.topbar{background:var(--green);color:white;text-align:center;padding:8px 12px;font-size:13px}
-header{background:#fffdf7;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-.nav{max-width:1100px;margin:auto;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}.logo{width:44px;height:44px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:white;font-size:24px}.brand strong{display:block;font-size:17px;color:var(--green)}.brand small{font-size:11px;color:var(--muted)}
-.cart-btn,.btn{border:0;border-radius:12px;padding:11px 15px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}
-.cart-btn{background:#edf3e7;color:var(--green)}.hero{max-width:1100px;margin:auto;padding:36px 18px 24px;display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center}
-.hero-copy{padding:12px 0}.eyebrow{color:var(--leaf);font-weight:800;font-size:13px;letter-spacing:.3px}.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.18;color:var(--green);margin:10px 0 14px}.hero p{color:var(--muted);max-width:520px;margin:0 0 22px}.btn-primary{background:var(--green);color:white}.btn-light{background:#fff;border:1px solid var(--line);color:var(--green)}.hero-art{min-height:260px;border-radius:26px;background:linear-gradient(135deg,#e7efdc,#f7e7bd);display:grid;place-items:center;text-align:center;padding:24px;position:relative;overflow:hidden}.hero-art .big{font-size:90px;line-height:1}.hero-art strong{display:block;color:var(--green);font-size:22px;margin-top:12px}.hero-art span{color:#52694a;font-size:13px}
-.trust{max-width:1100px;margin:0 auto;padding:0 18px 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.trust div{background:#fff;border:1px solid var(--line);padding:13px;border-radius:14px;font-size:13px;text-align:center}
-section{max-width:1100px;margin:auto;padding:22px 18px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:16px}.section-head h2{margin:0;color:var(--green);font-size:25px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.product{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}.product-art{height:145px;display:grid;place-items:center;font-size:64px;background:linear-gradient(135deg,#f2f3e7,#e4ecd9)}.product-body{padding:14px;display:flex;flex-direction:column;flex:1}.product h3{font-size:17px;margin:0 0 4px;color:var(--green)}.product p{font-size:12px;color:var(--muted);margin:0 0 12px}.price-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}.price{font-weight:800;color:var(--green)}.add{background:var(--green);color:white;border:0;border-radius:10px;padding:9px 11px;cursor:pointer;font-weight:700}
-.note{background:#f1f5eb;border:1px solid #dce7d3;border-radius:14px;padding:14px;font-size:13px;color:#43533e;margin-top:16px}
-.order-layout{display:grid;grid-template-columns:1fr .85fr;gap:18px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:18px}.panel h3{margin:0 0 14px;color:var(--green)}label{display:block;font-weight:700;font-size:13px;margin:11px 0 5px}input,textarea,select{width:100%;padding:12px;border:1px solid #d7dfd2;border-radius:10px;font:inherit;background:#fff}textarea{min-height:80px;resize:vertical}.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.summary-line{display:flex;justify-content:space-between;gap:10px;margin:9px 0;font-size:14px}.total{border-top:1px solid var(--line);padding-top:12px;font-weight:800;font-size:17px;color:var(--green)}.empty{font-size:13px;color:var(--muted)}.remove{border:0;background:transparent;color:#a33;cursor:pointer}
-footer{margin-top:28px;background:var(--green);color:#f4f6ee;padding:28px 18px;text-align:center}footer strong{font-size:18px}footer p{font-size:13px;color:#dce7d7;margin:6px auto 14px;max-width:600px}.wa{background:#1c8d54;color:#fff}.small{font-size:11px;color:var(--muted)}
-.admin{display:none;background:#fff;border:1px dashed #9da991;border-radius:14px;padding:15px;margin-top:14px}.admin.show{display:block}.admin h4{margin:0 0 8px;color:var(--green)}.admin textarea{min-height:110px}
-@media(max-width:720px){.hero{grid-template-columns:1fr;padding-top:24px}.hero-art{min-height:190px}.hero-art .big{font-size:70px}.trust{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-art{height:115px;font-size:50px}.product-body{padding:11px}.product h3{font-size:15px}.order-layout{grid-template-columns:1fr}.section-head h2{font-size:22px}}
-@media(max-width:380px){.products{grid-template-columns:1fr}.field-row{grid-template-columns:1fr}.brand strong{font-size:15px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ফয়সাল অর্গানিক ফুড — প্রাকৃতিক ও মানসম্মত খাবার">
+  <title>ফয়সাল অর্গানিক ফুড</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="topbar">🌿 প্রাকৃতিক খাবারের যত্নশীল সংগ্রহ • ঘরে বসেই অর্ডার করুন</div>
-<header><div class="nav">
-<a class="brand" href="#"><span class="logo">🌿</span><span><strong>ফয়সাল অর্গানিক ফুড</strong><small>বিশ্বাসের সাথে প্রাকৃতিক খাবার</small></span></a>
-<button class="cart-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">🛒 কার্ট <span id="cartCount">0</span></button>
-</div></header>
-<main>
-<div class="hero">
-<div class="hero-copy"><div class="eyebrow">প্রাকৃতিক স্বাদ, যত্নের সাথে</div><h1>আপনার পরিবারের জন্য<br>ভালো খাবারের পছন্দ</h1><p>মধু, বাদাম, বীজ ও সরিষার তেল—আপনার পছন্দের পণ্য বেছে নিন এবং সহজেই অর্ডার করুন।</p><a class="btn btn-primary" href="#products">পণ্য দেখুন ↓</a> <a class="btn btn-light" href="#order">অর্ডার করুন</a></div>
-<div class="hero-art"><div><div class="big">🍯 🥜 🌻</div><strong>প্রকৃতির কাছাকাছি</strong><span>আপনার পছন্দের পণ্য এক জায়গায়</span></div></div>
-</div>
-<div class="trust"><div>🌱 বাছাই করা পণ্য</div><div>📦 বাসায় ডেলিভারি</div><div>💬 সহজ অর্ডার ও যোগাযোগ</div></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="ফয়সাল অর্গানিক ফুড হোম">
+      <span class="brand-mark">🌿</span>
+      <span><strong>ফয়সাল অর্গানিক ফুড</strong><small>প্রকৃতির স্বাদ, আপনার ঘরে</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="মেনু খুলুন">☰</button>
+    <nav id="nav">
+      <a href="#home">হোম</a><a href="#products">পণ্যসমূহ</a><a href="#about">আমাদের সম্পর্কে</a><a href="#contact">যোগাযোগ</a>
+    </nav>
+  </header>
 
-<section id="products"><div class="section-head"><div><h2>আমাদের পণ্য</h2><p>পণ্যের দাম ও পরিমাণ নিশ্চিত করে অর্ডার করুন</p></div></div>
-<div class="products" id="productGrid"></div>
-<div class="note">ℹ️ পণ্যের ছবি, দাম ও ওজন আপাতত নমুনা হিসেবে দেওয়া হয়েছে। প্রকাশের আগে আপনার আসল পণ্যের ছবি, দাম ও প্যাকেটের পরিমাণ বসিয়ে নিন।</div>
-</section>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">বিশুদ্ধতা ও যত্নের প্রতিশ্রুতি</span>
+        <h1>প্রাকৃতিক খাবার,<br><em>বিশ্বাসের সাথে</em></h1>
+        <p>আপনার পরিবারের জন্য বেছে নিন পছন্দের খাবার। পণ্য দেখুন এবং সহজেই অর্ডার করুন।</p>
+        <a class="primary-btn" href="#products">পণ্য দেখুন <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-label="প্রাকৃতিক খাবারের সাজানো ঝুড়ির অলংকারমূলক চিত্র">
+        <div class="sun"></div><div class="leaf leaf-one"></div><div class="leaf leaf-two"></div>
+        <div class="basket"><span>🥜</span><span>🌰</span><span>🍯</span><span>🌻</span></div>
+        <div class="art-caption">Natural • Fresh • Trusted</div>
+      </div>
+    </section>
 
-<section id="order"><div class="section-head"><div><h2>অর্ডার দিন</h2><p>আপনার তথ্য ও ডেলিভারির ঠিকানা লিখুন</p></div></div>
-<div class="order-layout">
-<div class="panel"><h3>📋 ক্রেতার তথ্য</h3>
-<form id="orderForm">
-<label for="customer">আপনার নাম *</label><input id="customer" required placeholder="পুরো নাম">
-<div class="field-row"><div><label for="phone">মোবাইল নম্বর *</label><input id="phone" required inputmode="tel" placeholder="01XXXXXXXXX" pattern="01[0-9]{9}"></div>
-<div><label for="district">ডেলিভারি এলাকা *</label><select id="district" required><option value="inside">ঢাকার ভিতরে</option><option value="outside">ঢাকার বাইরে</option></select></div></div>
-<label for="address">সম্পূর্ণ ঠিকানা *</label><textarea id="address" required placeholder="বাসা/রোড, এলাকা, জেলা"></textarea>
-<label for="payment">পেমেন্ট পদ্ধতি</label><select id="payment"><option value="cod">ক্যাশ অন ডেলিভারি (COD)</option><option value="bkash">বিকাশ (পেমেন্ট নির্দেশনা WhatsApp-এ)</option><option value="nagad">নগদ (পেমেন্ট নির্দেশনা WhatsApp-এ)</option></select>
-<label for="extra">অতিরিক্ত নির্দেশনা (ঐচ্ছিক)</label><textarea id="extra" placeholder="যেমন: কল করে আসবেন"></textarea>
-<button class="btn btn-primary" type="submit" style="width:100%;margin-top:14px">WhatsApp-এ অর্ডার পাঠান</button>
-<p class="small">এই বাটন আপনার WhatsApp-এ অর্ডারের লেখা তৈরি করবে। অর্ডার চূড়ান্ত করতে WhatsApp-এ Send চাপুন।</p>
-</form></div>
-<div class="panel"><h3>🧺 আপনার কার্ট</h3><div id="cartItems"><p class="empty">এখনো কোনো পণ্য যোগ করা হয়নি।</p></div>
-<div class="summary-line"><span>পণ্যের মোট</span><strong id="subtotal">৳০</strong></div>
-<div class="summary-line"><span>ডেলিভারি চার্জ</span><strong id="delivery">৳৭০</strong></div>
-<div class="summary-line total"><span>সর্বমোট</span><strong id="total">৳৭০</strong></div>
-<p class="small">নমুনা ডেলিভারি চার্জ: ঢাকার ভিতরে ৳৭০, বাইরে ৳১৩০। আপনার কুরিয়ার চার্জ অনুযায়ী পরিবর্তন করুন।</p>
-</div>
-</div>
-<div class="panel" style="margin-top:14px"><h3>⚙️ দোকান পরিচালনা / অ্যাডমিন</h3><p class="small">এটি এই ডিভাইসে পণ্যের নাম ও দাম পরিবর্তনের নমুনা প্যানেল। পাসওয়ার্ড-সুরক্ষিত অনলাইন অ্যাডমিন বা সব ডিভাইসে অর্ডার সংরক্ষণ করতে আলাদা ব্যাকএন্ড প্রয়োজন।</p>
-<button class="btn btn-light" type="button" onclick="toggleAdmin()">অ্যাডমিন সেটিংস খুলুন</button>
-<div class="admin" id="adminPanel"><h4>পণ্যের তালিকা সম্পাদনা</h4><label for="productJson">পণ্যের তথ্য (JSON)</label><textarea id="productJson"></textarea><button class="btn btn-primary" type="button" onclick="saveProducts()">পরিবর্তন সংরক্ষণ</button> <button class="btn btn-light" type="button" onclick="resetProducts()">ডিফল্ট ফিরিয়ে আনুন</button><p class="small">সতর্কতা: এটি নিরাপদ লগইন নয় এবং শুধু এই ব্রাউজারে সংরক্ষণ হয়। এখানে কোনো গোপন তথ্য রাখবেন না।</p></div>
-</div>
-</section>
-</main>
-<footer><strong>ফয়সাল অর্গানিক ফুড</strong><p>মধু • কাজু বাদাম • কাঠ বাদাম • আখরোট • সানফ্লাওয়ার সিড • খাঁটি সরিষার তেল • কালোজিরা</p>
-<a class="btn wa" id="footerWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp-এ যোগাযোগ</a>
-<p class="small">ফোন/WhatsApp: 01605528973</p></footer>
+    <section class="benefits" aria-label="আমাদের সুবিধা">
+      <div><span>🌱</span><strong>যত্নে বাছাই করা</strong><small>পণ্যের মানকে গুরুত্ব দিই</small></div>
+      <div><span>📦</span><strong>সহজ অর্ডার</strong><small>মোবাইল থেকেই অর্ডার করুন</small></div>
+      <div><span>🚚</span><strong>হোম ডেলিভারি</strong><small>ঢাকা ও ঢাকার বাইরে</small></div>
+    </section>
 
-<script>
-const WHATSAPP_NUMBER = "8801605528973"; // বাংলাদেশি নম্বর: +880, শুরুর 0 বাদ
-const DEFAULT_PRODUCTS = [
- {id:1,name:"খাঁটি মধু",desc:"পরিমাণ ও উৎস নিশ্চিত করে নিন",price:450,unit:"প্রতি জার",emoji:"🍯"},
- {id:2,name:"কাজু বাদাম",desc:"বাছাই করা বাদাম",price:350,unit:"প্রতি প্যাকেট",emoji:"🥜"},
- {id:3,name:"কাঠ বাদাম",desc:"সতেজ ও বাছাই করা",price:320,unit:"প্রতি প্যাকেট",emoji:"🌰"},
- {id:4,name:"আখরোট",desc:"প্যাকেটের ওজন নিশ্চিত করুন",price:400,unit:"প্রতি প্যাকেট",emoji:"🌰"},
- {id:5,name:"সানফ্লাওয়ার সিড",desc:"দৈনন্দিন খাবারের জন্য",price:180,unit:"প্রতি প্যাকেট",emoji:"🌻"},
- {id:6,name:"খাঁটি সরিষার তেল",desc:"বোতলের পরিমাণ নিশ্চিত করুন",price:250,unit:"প্রতি বোতল",emoji:"🫙"},
- {id:7,name:"কালোজিরা",desc:"বাছাই করা কালোজিরা",price:120,unit:"প্রতি প্যাকেট",emoji:"⚫"}
-];
-let products = loadProducts(), cart = {};
-function loadProducts(){try{return JSON.parse(localStorage.getItem("foysal_products"))||DEFAULT_PRODUCTS}catch(e){return DEFAULT_PRODUCTS}}
-function money(n){return "৳"+Number(n).toLocaleString("bn-BD")}
-function renderProducts(){
- const grid=document.getElementById("productGrid");
- grid.innerHTML=products.map(p=>`<article class="product"><div class="product-art">${p.emoji||"🌿"}</div><div class="product-body"><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.desc||"")}</p><div class="price-row"><span class="price">${money(p.price)} <small style="font-size:10px;font-weight:500">${escapeHtml(p.unit||"")}</small></span><button class="add" onclick="addToCart(${Number(p.id)})">+ যোগ</button></div></div></article>`).join("");
-}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart()}
-function changeQty(id,delta){cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];renderCart()}
-function getDelivery(){return document.getElementById("district").value==="inside"?70:130}
-function renderCart(){
- const items=document.getElementById("cartItems");let subtotal=0,count=0,html="";
- products.forEach(p=>{let q=cart[p.id]||0;if(q){subtotal+=Number(p.price)*q;count+=q;html+=`<div class="summary-line"><span>${escapeHtml(p.name)} × ${q}<br><button class="remove" onclick="changeQty(${p.id},-1)">− কমান</button> <button class="remove" onclick="changeQty(${p.id},1)">+ বাড়ান</button></span><strong>${money(Number(p.price)*q)}</strong></div>`}});
- items.innerHTML=html||'<p class="empty">এখনো কোনো পণ্য যোগ করা হয়নি।</p>';
- let delivery=getDelivery();document.getElementById("cartCount").textContent=count;
- document.getElementById("subtotal").textContent=money(subtotal);document.getElementById("delivery").textContent=money(delivery);document.getElementById("total").textContent=money(subtotal+delivery);
-}
-document.getElementById("district").addEventListener("change",renderCart);
-document.getElementById("orderForm").addEventListener("submit",e=>{
- e.preventDefault();let lines=[],subtotal=0;
- products.forEach(p=>{let q=cart[p.id]||0;if(q){subtotal+=Number(p.price)*q;lines.push(`${p.name} x ${q} = ${money(Number(p.price)*q)}`)}});
- if(!lines.length){alert("আগে কার্টে অন্তত একটি পণ্য যোগ করুন।");return}
- const name=document.getElementById("customer").value.trim(),phone=document.getElementById("phone").value.trim(),area=document.getElementById("district").value==="inside"?"ঢাকার ভিতরে":"ঢাকার বাইরে",delivery=getDelivery(),payment=document.getElementById("payment").selectedOptions[0].text,address=document.getElementById("address").value.trim(),extra=document.getElementById("extra").value.trim();
- const msg=`🌿 নতুন অর্ডার — ফয়সাল অর্গানিক ফুড\n\nক্রেতা: ${name}\nমোবাইল: ${phone}\nএলাকা: ${area}\nঠিকানা: ${address}\n\nপণ্য:\n${lines.join("\n")}\n\nপণ্যের মোট: ${money(subtotal)}\nডেলিভারি: ${money(delivery)}\nসর্বমোট: ${money(subtotal+delivery)}\nপেমেন্ট: ${payment}\nঅতিরিক্ত: ${extra||"নেই"}`;
- window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank");
-});
-function toggleAdmin(){let p=document.getElementById("adminPanel");p.classList.toggle("show");document.getElementById("productJson").value=JSON.stringify(products,null,2)}
-function saveProducts(){try{let arr=JSON.parse(document.getElementById("productJson").value);if(!Array.isArray(arr))throw Error();products=arr;localStorage.setItem("foysal_products",JSON.stringify(products));cart={};renderProducts();renderCart();alert("এই ব্রাউজারে পণ্যের তথ্য সংরক্ষণ হয়েছে।")}catch(e){alert("JSON ঠিক নেই। দয়া করে সঠিক তালিকা দিন।")}}
-function resetProducts(){products=DEFAULT_PRODUCTS;localStorage.removeItem("foysal_products");cart={};document.getElementById("productJson").value=JSON.stringify(products,null,2);renderProducts();renderCart()}
-document.getElementById("footerWhatsApp").href="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("আসসালামু আলাইকুম, ফয়সাল অর্গানিক ফুডের পণ্য সম্পর্কে জানতে চাই।");
-renderProducts();renderCart();
-</script>
+    <section class="section products-section" id="products">
+      <div class="section-heading">
+        <div><span class="eyebrow">আমাদের সংগ্রহ</span><h2>জনপ্রিয় পণ্যসমূহ</h2></div>
+        <p>পছন্দের পণ্য বেছে নিয়ে অর্ডার করুন। দাম আপাতত ০০০ টাকা রাখা হয়েছে—পরে পরিবর্তন করতে পারবেন।</p>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="delivery-banner">
+      <div><span class="eyebrow">আপনার দোরগোড়ায়</span><h2>ঘরে বসেই অর্ডার করুন</h2><p>ঢাকার মধ্যে ডেলিভারি ৭০ টাকা · ঢাকার বাইরে ১৩০ টাকা</p></div>
+      <a class="light-btn" href="#products">এখনই কেনাকাটা করুন</a>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="about-icon">🌿</div>
+      <div><span class="eyebrow">আমাদের কথা</span><h2>ফয়সাল অর্গানিক ফুড</h2><p>আপনার পছন্দের খাবার সহজে খুঁজে পাওয়া ও অর্ডার করার জন্য এই অনলাইন শপ। পণ্যের বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।</p></div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-heading"><div><span class="eyebrow">যোগাযোগ</span><h2>আমরা আছি আপনার পাশে</h2></div></div>
+      <div class="contact-card">
+        <div><span class="contact-icon">📞</span><div><strong>ফোন</strong><p>01605528973</p></div></div>
+        <div><span class="contact-icon">🚚</span><div><strong>ডেলিভারি চার্জ</strong><p>ঢাকার মধ্যে ৭০ টাকা · ঢাকার বাইরে ১৩০ টাকা</p></div></div>
+        <a class="primary-btn" href="https://wa.me/8801605528973" target="_blank" rel="noopener">WhatsApp-এ যোগাযোগ করুন ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="footer-brand" href="#home">🌿 ফয়সাল অর্গানিক ফুড</a><p>প্রকৃতির স্বাদ, আপনার ঘরে</p><small>© <span id="year"></span> ফয়সাল অর্গানিক ফুড। সর্বস্বত্ব সংরক্ষিত।</small></footer>
+
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-modal" id="closeModal" aria-label="বন্ধ করুন">×</button>
+      <span class="eyebrow">অর্ডার ফর্ম</span><h2 id="modalTitle">আপনার অর্ডার দিন</h2>
+      <p class="selected-product" id="selectedProduct"></p>
+      <form id="orderForm">
+        <label>আপনার নাম<input id="customerName" required placeholder="নাম লিখুন"></label>
+        <label>মোবাইল নম্বর<input id="customerPhone" required inputmode="tel" placeholder="01XXXXXXXXX"></label>
+        <label>সম্পূর্ণ ঠিকানা<textarea id="customerAddress" required rows="3" placeholder="বাড়ি, এলাকা, জেলা"></textarea></label>
+        <label>পরিমাণ<select id="quantity"><option value="1">১টি</option><option value="2">২টি</option><option value="3">৩টি</option><option value="4">৪টি</option><option value="5">৫টি</option></select></label>
+        <label>ডেলিভারি এলাকা<select id="deliveryArea"><option value="ঢাকার মধ্যে">ঢাকার মধ্যে — ৭০ টাকা</option><option value="ঢাকার বাইরে">ঢাকার বাইরে — ১৩০ টাকা</option></select></label>
+        <button class="primary-btn full-btn" type="submit">WhatsApp-এ অর্ডার পাঠান ↗</button>
+        <small class="form-note">বাটনে চাপ দিলে আপনার অর্ডারের তথ্য WhatsApp-এ তৈরি হবে। পাঠানোর আগে তথ্য যাচাই করুন।</small>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
