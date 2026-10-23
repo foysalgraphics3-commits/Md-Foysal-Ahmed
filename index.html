@@ -1,91 +1,87 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ফয়সাল অর্গানিক ফুড — প্রাকৃতিক ও মানসম্মত খাবার">
-  <title>ফয়সাল অর্গানিক ফুড</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="ফয়সাল অর্গানিক ফুড হোম">
-      <span class="brand-mark">🌿</span>
-      <span><strong>ফয়সাল অর্গানিক ফুড</strong><small>প্রকৃতির স্বাদ, আপনার ঘরে</small></span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="মেনু খুলুন">☰</button>
-    <nav id="nav">
-      <a href="#home">হোম</a><a href="#products">পণ্যসমূহ</a><a href="#about">আমাদের সম্পর্কে</a><a href="#contact">যোগাযোগ</a>
-    </nav>
-  </header>
+// ১. বর্তমান বছর স্বয়ংক্রিয়ভাবে ফুটার-এ যুক্ত করা
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <span class="eyebrow">বিশুদ্ধতা ও যত্নের প্রতিশ্রুতি</span>
-        <h1>প্রাকৃতিক খাবার,<br><em>বিশ্বাসের সাথে</em></h1>
-        <p>আপনার পরিবারের জন্য বেছে নিন পছন্দের খাবার। পণ্য দেখুন এবং সহজেই অর্ডার করুন।</p>
-        <a class="primary-btn" href="#products">পণ্য দেখুন <span>→</span></a>
-      </div>
-      <div class="hero-art" aria-label="প্রাকৃতিক খাবারের সাজানো ঝুড়ির অলংকারমূলক চিত্র">
-        <div class="sun"></div><div class="leaf leaf-one"></div><div class="leaf leaf-two"></div>
-        <div class="basket"><span>🥜</span><span>🌰</span><span>🍯</span><span>🌻</span></div>
-        <div class="art-caption">Natural • Fresh • Trusted</div>
-      </div>
-    </section>
+// ২. মোবাইল মেনু টগল (Open/Close)
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.getElementById('nav');
 
-    <section class="benefits" aria-label="আমাদের সুবিধা">
-      <div><span>🌱</span><strong>যত্নে বাছাই করা</strong><small>পণ্যের মানকে গুরুত্ব দিই</small></div>
-      <div><span>📦</span><strong>সহজ অর্ডার</strong><small>মোবাইল থেকেই অর্ডার করুন</small></div>
-      <div><span>🚚</span><strong>হোম ডেলিভারি</strong><small>ঢাকা ও ঢাকার বাইরে</small></div>
-    </section>
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  menuToggle.textContent = nav.classList.contains('active') ? '✕' : '☰';
+});
 
-    <section class="section products-section" id="products">
-      <div class="section-heading">
-        <div><span class="eyebrow">আমাদের সংগ্রহ</span><h2>জনপ্রিয় পণ্যসমূহ</h2></div>
-        <p>পছন্দের পণ্য বেছে নিন</p>
-      </div>
-      <div class="product-grid" id="productGrid"></div>
-    </section>
+// ৩. আপনার আসল পণ্যের ডাটা ও ছবির পাথ
+const products = [
+  { id: 1, name: "খাঁটি খেজুর গুড়", price: 490, unit: "কেজি", image: "images/gur.png" },
+  { id: 2, name: "গোটা নারিকেল", price: 190, unit: "পিস", image: "images/narikel.png" },
+  { id: 3, name: "খাঁটি সরিষার তেল", price: 1250, unit: "৫ লিটার", image: "images/oil.png" },
+  { id: 4, name: "মাস কালাই ডাল", price: 120, unit: "কেজি", image: "images/dal.png" },
+  { id: 5, name: "অর্গানিক লাল চাল", price: 120, unit: "কেজি", image: "images/rice.png" }
+];
 
-    <section class="delivery-banner">
-      <div><span class="eyebrow">আপনার দোরগোড়ায়</span><h2>ঘরে বসেই অর্ডার করুন</h2><p>ঢাকার মধ্যে ডেলিভারি ৭০ টাকা · ঢাকার বাইরে ১৩০ টাকা</p></div>
-      <a class="light-btn" href="#products">এখনই কেনাকাটা করুন</a>
-    </section>
+// ৪. প্রোডাক্ট গ্রিডে পণ্যগুলো প্রদর্শন করা
+const productGrid = document.getElementById('productGrid');
+let selectedProductName = "";
 
-    <section class="section about-section" id="about">
-      <div class="about-icon">🌿</div>
-      <div><span class="eyebrow">আমাদের কথা</span><h2>ফয়সাল অর্গানিক ফুড</h2><p>আপনার পছন্দের খাবার সহজে খুঁজে পাওয়া ও অর্ডার করার জন্য এই অনলাইন শপ। পণ্যের বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।</p></div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="section-heading"><div><span class="eyebrow">যোগাযোগ</span><h2>আমরা আছি আপনার পাশে</h2></div></div>
-      <div class="contact-card">
-        <div><span class="contact-icon">📞</span><div><strong>ফোন</strong><p>01605528973</p></div></div>
-        <div><span class="contact-icon">🚚</span><div><strong>ডেলিভারি চার্জ</strong><p>ঢাকার মধ্যে ৭০ টাকা · ঢাকার বাইরে ১৩০ টাকা</p></div></div>
-        <a class="primary-btn" href="https://wa.me/8801605528973" target="_blank" rel="noopener">WhatsApp-এ যোগাযোগ করুন ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <footer><a class="footer-brand" href="#home">🌿 ফয়সাল অর্গানিক ফুড</a><p>প্রকৃতির স্বাদ, আপনার ঘরে</p><small>© <span id="year"></span> ফয়সাল অর্গানিক ফুড। সর্বস্বত্ব সংরক্ষিত।</small></footer>
-
-  <div class="modal" id="orderModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="close-modal" id="closeModal" aria-label="বন্ধ করুন">×</button>
-      <span class="eyebrow">অর্ডার ফর্ম</span><h2 id="modalTitle">আপনার অর্ডার দিন</h2>
-      <p class="selected-product" id="selectedProduct"></p>
-      <form id="orderForm">
-        <label>আপনার নাম<input id="customerName" required placeholder="নাম লিখুন"></label>
-        <label>মোবাইল নম্বর<input id="customerPhone" required inputmode="tel" placeholder="01XXXXXXXXX"></label>
-        <label>সম্পূর্ণ ঠিকানা<textarea id="customerAddress" required rows="3" placeholder="বাড়ি, এলাকা, জেলা"></textarea></label>
-        <label>পরিমাণ<select id="quantity"><option value="1">১টি</option><option value="2">২টি</option><option value="3">৩টি</option><option value="4">৪টি</option><option value="5">৫টি</option></select></label>
-        <label>ডেলিভারি এলাকা<select id="deliveryArea"><option value="ঢাকার মধ্যে">ঢাকার মধ্যে — ৭০ টাকা</option><option value="ঢাকার বাইরে">ঢাকার বাইরে — ১৩০ টাকা</option></select></label>
-        <button class="primary-btn full-btn" type="submit">WhatsApp-এ অর্ডার পাঠান ↗</button>
-        <small class="form-note">বাটনে চাপ দিলে আপনার অর্ডারের তথ্য WhatsApp-এ তৈরি হবে। পাঠানোর আগে তথ্য যাচাই করুন।</small>
-      </form>
+function displayProducts() {
+  productGrid.innerHTML = products.map(product => `
+    <div class="product-card">
+      <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placeholder.com'">
+      <h3>${product.name}</h3>
+      <p class="price">৳ ${product.price} / ${product.unit}</p>
+      <button class="order-btn" onclick="openOrderModal('${product.name}', ${product.price})">এখনই অর্ডার করুন</button>
     </div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+  `).join('');
+}
+
+// ৫. মডাল ওপেন এবং ক্লোজ ফাংশন
+const orderModal = document.getElementById('orderModal');
+const selectedProductText = document.getElementById('selectedProduct');
+
+function openOrderModal(name, price) {
+  selectedProductName = name;
+  selectedProductText.innerHTML = `নির্বাচিত পণ্য: <strong>${name}</strong> (মূল্য: ৳${price})`;
+  orderModal.classList.add('show');
+  orderModal.setAttribute('aria-hidden', 'false');
+}
+
+document.getElementById('closeModal').addEventListener('click', () => {
+  orderModal.classList.remove('show');
+  orderModal.setAttribute('aria-hidden', 'true');
+});
+
+// ৬. হোয়াটসঅ্যাপে অর্ডারের তথ্য পাঠানো
+const orderForm = document.getElementById('orderForm');
+orderForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const name = document.getElementById('customerName').value;
+  const phone = document.getElementById('customerPhone').value;
+  const address = document.getElementById('customerAddress').value;
+  const quantity = document.getElementById('quantity').value;
+  const area = document.getElementById('deliveryArea').value;
+  
+  // হোয়াটসঅ্যাপ মেসেজের টেক্সট ফরম্যাট
+  const message = `🌿 ফয়সাল অর্গানিক ফুড 🌿\n` +
+                  `---------------------------\n` +
+                  `নতুন অর্ডারের বিবরণ:\n\n` +
+                  `📦 পণ্য: ${selectedProductName}\n` +
+                  `🔢 পরিমাণ: ${quantity} টি\n` +
+                  `👤 কাস্টমার নাম: ${name}\n` +
+                  `📞 মোবাইল নম্বর: ${phone}\n` +
+                  `📍 সম্পূর্ণ ঠিকানা: ${address}\n` +
+                  `🚚 ডেলিভারি এলাকা: ${area}`;
+                  
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappNumber = "8801605528973"; // আপনার দেওয়া হোয়াটসঅ্যাপ নম্বর
+  
+  window.open(`https://wa.me{whatsappNumber}?text=${encodedMessage}`, '_blank');
+  
+  // মডাল বন্ধ ও ফর্ম রিসেট
+  orderModal.classList.remove('show');
+  orderForm.reset();
+});
+
+// পেজ লোড হলে প্রোডাক্ট দেখানোর ফাংশন চালু হবে
+displayProducts();
+adbscscripadbscscrip/html>
